@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bluetooth Sleuth Support</title>
+  </head>
+  <body>
+  	<h1>General Usage</h1>
+  	<p>Bluetooth Sleuth is designed to be a utility for exposing the wide assortment of features that Apple's iOS and macOS devices offer via Bluetooth</p>
+  	<h1>Advertising</h1>
+  	<p>The advertising section allows you to set up your device to broadcast specific information.</p>
+  	<ol>
+  		<li>Services allows you to either generate random CBUUIDs or provide your own valid CBUUID. Once entered, you can configure the service, add characteristics, and descriptors. These will be shared with your advertisement</li>
+  		<li>Advertisement Service allows you to associate a valid CBUUID with the advertisement. This can be used by scanners to restrict your advertisement</li>
+  		<li>Advertisement Local Name allows you to provide a name for the advertisement. This will not appear in the scan, but can be viewed by a connected central</li>
+  	</ol>
+  	<p>Once configured, you can begin advertising your device</p>
+
+	<h1>Scan</h1>
+	<p>The scan section will search for available peripherals.</p>
+	<ol>
+		<li>You can provide one or more service CBUUIDs to restrict the devices found</li>
+		<li>When the Service CBUUID field is left blank, all devices will be returned</li>
+		<li>Any discovered device that supports connections (as shown by the image) will begin a connection when clicked</li>
+		<li>If a device fails to connect within 10 seconds, the connection will fail</li>
+		<li>Once connected, your can view peripheral data, advertisement data, and all services</li>
+		<li>You can disconnect from a peripheral with the button that will appear under the connected device</li>
+	</ol>
+
+	<h1>Broadcast</h1>
+	<p>The broadcast section will turn your device into an iBeacon</p>
+	<ol>
+		<li>You must provide a valid UUID to begin broadcasting</li>
+		<li>Optionally, you may generate a random UUID to broadcast</li>
+		<li>The Beacon identifier is an optional field to help label your beacon</li>
+		<li>Beacon values are optional, and help to further refine iBeacon observations.</li>
+		<li>If using beacon values, you can either provide only a major, or a major and minor. Using only a minor value is not possible</li>
+		<li>Measured power is an optional value, and generally should be left to its default value. This supports cases where you need to obtain a precise output value at 1m</li>
+	</ol>
+
+	<h1>Range</h1>
+	<p>The range section will allow you to discover other iBeacons</p>
+	<ol>
+		<li>You must provide a valid UUID that matches the broadcasting device to begin ranging</li>
+		<li>The Beacon identifier is an optional field to help label your beacon</li>
+		<li>Beacon values are optional, and help to further refine iBeacon observations. If your values differ from assigned values of the broadcasting iBeacon, then you will not see it</li>
+		<li>Once you start ranging, any iBeacons that satisfy the provided criteria will display.</li>
+	</ol>
+
+	<h1>Monitor</h1>
+	<p>The monitor section will allow you to discover when you are entering and exiting the presence of other iBeacons</p>
+	<ol>
+		<li>You must provide a valid UUID that matches the broadcasting device to begin ranging</li>
+		<li>Beacon values are optional, and help to further refine iBeacon observations. If your values differ from assigned values of the broadcasting iBeacon, then you will not see it</li>
+		<li>Once you start monitoring, any iBeacons that satisfy the provided criteria will trigger updates in your region status. These updates may not occur immediately due to device throttling of location services.</li>
+	</ol>
+
+  </body>
+</html>
